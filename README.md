@@ -1,6 +1,10 @@
 # flutter-development
 
+<<<<<<< HEAD
 Skill para agentes de código especializada en desarrollo de aplicaciones móviles con **Flutter** y **Dart**.
+=======
+Skill técnica para agentes de código especializada en desarrollo de aplicaciones móviles con **Flutter** y **Dart**. Define un conjunto de reglas, flujos y referencias verificables para producir código de calidad con consumo mínimo de contexto.
+>>>>>>> 0a2baec2ffefc177df4a664a5df2cfa9fc636eb7
 
 ## Propósito
 
