@@ -1,43 +1,44 @@
 ---
 name: flutter-development
-description: Especialista Flutter/Dart. Usar para UI, estado, navegación, SQLite, arquitectura, depuración y pruebas. Prioriza contexto mínimo, pruebas unitarias obligatorias, verificación de servicios y persistencia BD.
+description: Flutter/Dart specialist for mobile apps. Use for pubspec.yaml, widgets, state management, navigation, sqflite/SQLite, architecture, debugging, tests (flutter test). Do NOT use for non-Flutter projects, pure backend, or web-only tasks.
 ---
 
 # Flutter Development
 
-## Reglas de contexto (lean)
-- Lee solo archivos involucrados; localiza con `glob`/`grep` antes de `read`.
-- Carga `references/*` solo si la tarea lo requiere (ver INDEX).
-- Referencia `path:línea`, no pegues bloques grandes.
-- No reanalices el proyecto sin motivo.
+## Context rules (lean)
+- Read only involved files; locate with `glob`/`grep` before `read`.
+- Load `references/*` only when needed (see INDEX).
+- Reference `path:line`, don't paste large blocks.
+- Don't re-analyze the project without reason.
 
-## Flujo obligatorio
-1. Requerimientos mínimos.
-2. Inspeccionar solo archivos involucrados.
-3. Implementar cambios acotados.
-4. Pruebas unitarias (obligatorio).
-5. Verificar servicios.
-6. Verificar persistencia BD ↔ sistema.
-7. `flutter analyze` + `dart format .` + `flutter test`.
+## Mandatory flow
+1. Minimal requirements.
+2. Inspect only involved files.
+3. Implement scoped changes.
+4. Unit tests (required, except trivial UI/text changes).
+5. Verify services.
+6. Verify persistence DB ↔ system.
+7. `flutter analyze` + `dart format .` + `flutter test` (or `flutter test --coverage`).
 
-No cerrar tarea sin pruebas verdes.
+If tests cannot run in the environment, document the blocker and the exact command for the user to run; do not claim "green".
 
-## Responsabilidades por capa
-- Models: datos. Repositories: datos/SQL. Services: lógica. Screens: UI. Widgets: reutilizables. Core: compartido.
+## Layer responsibilities
+- Models: data. Repositories: data/SQL. Services: logic. Screens: UI. Widgets: reusable. Core: shared.
 
-## Persistencia SQLite
-- `DatabaseHelper` único; CRUD; consultas parametrizadas; migraciones; transacciones; errores manejados.
-- Ver `references/persistence/persistence-verification.md`.
+## Persistence (SQLite)
+- `DatabaseHelper` single; CRUD; parametrized queries; migrations; transactions; errors.
+- Consider `shared_preferences` (simple KV), `flutter_secure_storage` (secrets), `drift` (typed/complex queries).
+- See `references/persistence/persistence-verification.md`.
 
-## Servicios
-- Sin UI; inyectables; errores tipados; tests con mocks.
-- Ver `references/services/services-verification.md`.
+## Services
+- No UI; injectable; typed errors; tests with mocks.
+- See `references/services/services-verification.md`.
 
-## Estado
-- `setState` (local), `Provider`, `Riverpod`, `Bloc/Cubit` según necesidad; justificar dependencias.
+## State management
+- Default: `Provider` or `Riverpod` if nothing exists. `setState` for local/simple. `Bloc/Cubit` for complex flows. Justify new deps.
 
-## Seguridad/calidad
-- Sin secretos en texto plano; validar datos; SQL parametrizado; no eliminar sin autorización.
+## Security/quality
+- No plaintext secrets; validate data; parametrized SQL; no unauthorized deletes.
 
-## Referencias (on-demand)
-Ver `references/INDEX.md`. Carga solo el archivo relevante.
+## References (on-demand)
+See `references/INDEX.md`. Load only the relevant file.

@@ -17,8 +17,8 @@ Objetivo: uso correcto y eficiente de Flutter/Dart.
 
 ## Estado
 
-- `setState` para estado local simple.
-- `Provider`/`Riverpod` para estado compartido.
+- Default: `Provider` o `Riverpod` si no existe solución previa.
+- `setState` para estado local/simple.
 - `Bloc/Cubit` para flujos complejos.
 - Justificar cada dependencia nueva.
 
