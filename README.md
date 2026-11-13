@@ -1,6 +1,6 @@
 # Flutter-agent-skill
 
-Skill técnica para agentes de código (opencode) especializada en desarrollo de aplicaciones móviles con **Flutter** y **Dart**. Define un conjunto de reglas, flujos y referencias verificables para producir código de calidad con consumo mínimo de contexto.
+Skill técnica para agentes de código especializada en desarrollo de aplicaciones móviles con **Flutter** y **Dart**. Define un conjunto de reglas, flujos y referencias verificables para producir código de calidad con consumo mínimo de contexto.
 
 ---
 
